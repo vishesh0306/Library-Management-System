@@ -1,7 +1,7 @@
 package project.LibraryManagementSystem.entity;
 
 public class Book {
-    String bookID;
+    public String bookID;
     String title;
     String author;
 
