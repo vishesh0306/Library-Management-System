@@ -7,7 +7,7 @@ import project.LibraryManagementSystem.entity.User;
 
 public class Database{
   static User[] users = new User[10];
-  static HashMap<Book, Integer> books = new HashMap<>();
+  public static HashMap<Book, Integer> books = new HashMap<>();
 
   
 }
