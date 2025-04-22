@@ -2,8 +2,8 @@ package project.LibraryManagementSystem.entity;
 
 public class Book {
     public String bookID;
-    String title;
-    String author;
+    public String title;
+    public String author;
 
     Book(String bookID, String title, String author){
         this.bookID = bookID;
