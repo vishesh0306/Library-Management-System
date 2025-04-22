@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+import Service.LibraryService;
+import Service.UserService;
+import project.LibraryManagementSystem.entity.Book;
+
 public class Driver {
     public static void main(String[] args) {
         System.out.println(
@@ -20,7 +24,7 @@ public class Driver {
                 int choice2 = sc.nextInt();
                 switch (choice2) {
                     case 1:
-                        u.viewAvailaibleBooks();
+                        u.viewAvailableBooks();
                         break;
                     case 2:
                         System.out.println(
@@ -61,14 +65,14 @@ public class Driver {
                         System.out.println(
                                 "--------------------------- Enter the quantity of book -----------------------------");
                         int quant = sc.nextInt();
-                        Book b = new book(id, name, author);
+                        Book b = new Book(id, name, author);
                         l.addBook(b, quant);
                         System.out.println("Book is Added");
                         break;
                     case 2:
                         System.out.println("---------------------  Enter ID of the book  -----------------------");
                         String str = sc.next();
-                        if (l.isAvailaible(str)) {
+                        if (l.isAvailable(str)) {
                             System.out
                                     .println("-----------------  Hey User!...Book is availaible  --------------------");
                         } else {
