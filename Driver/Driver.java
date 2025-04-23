@@ -1,5 +1,13 @@
 import java.util.Scanner;
+<<<<<<< HEAD
 import Service.UserService;
+=======
+
+import Service.LibraryService;
+import Service.UserService;
+import project.LibraryManagementSystem.entity.Book;
+
+>>>>>>> 072f0ed01f47b262eb2182cdb8045249730b1307
 public class Driver {
     public static void main(String[] args) {
         System.out.println(
@@ -20,7 +28,7 @@ public class Driver {
                 int choice2 = sc.nextInt();
                 switch (choice2) {
                     case 1:
-                        u.viewAvailaibleBooks();
+                        u.viewAvailableBooks();
                         break;
                     case 2:
                         System.out.println(
@@ -61,15 +69,21 @@ public class Driver {
                         System.out.println(
                                 "--------------------------- Enter the quantity of book -----------------------------");
                         int quant = sc.nextInt();
-                        Book b = new book(id, name, author);
+                        Book b = new Book(id, name, author);
                         l.addBook(b, quant);
                         System.out.println("Book is Added");
                         break;
                     case 2:
                         System.out.println("---------------------  Enter ID of the book  -----------------------");
                         String str = sc.next();
+<<<<<<< HEAD
                         if (l.isAvailaible(str)) {
                             System.out.println("-----------------  Hey User!...Book is availaible  --------------------");
+=======
+                        if (l.isAvailable(str)) {
+                            System.out
+                                    .println("-----------------  Hey User!...Book is availaible  --------------------");
+>>>>>>> 072f0ed01f47b262eb2182cdb8045249730b1307
                         } else {
                             System.out.println( "-----------------  Sorry...The book is not currently availaible  -----------------------");
                         }
