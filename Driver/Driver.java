@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import Service.UserService;
 public class Driver {
     public static void main(String[] args) {
         System.out.println(
@@ -69,11 +69,9 @@ public class Driver {
                         System.out.println("---------------------  Enter ID of the book  -----------------------");
                         String str = sc.next();
                         if (l.isAvailaible(str)) {
-                            System.out
-                                    .println("-----------------  Hey User!...Book is availaible  --------------------");
+                            System.out.println("-----------------  Hey User!...Book is availaible  --------------------");
                         } else {
-                            System.out.println(
-                                    "-----------------  Sorry...The book is not currently availaible  -----------------------");
+                            System.out.println( "-----------------  Sorry...The book is not currently availaible  -----------------------");
                         }
                         break;
                     case 3:

@@ -10,27 +10,28 @@ import project.LibraryManagementSystem.entity.*;
 public class UserService {
 
     public String viewAvailableBooks() {
-        List<Book> availableBooks = Database.books.entrySet().stream()
-                .filter(entry -> entry.getValue() > 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-
-        if (availableBooks.isEmpty()) {
+        StringBuilder sb = new StringBuilder();
+        boolean anyAvailable = false;
+    
+        for (Map.Entry<Book, Integer> entry : Database.books.entrySet()) {
+            if (entry.getValue() > 0) {
+                Book book = entry.getKey();
+                sb.append("ID: ").append(book.bookID)
+                  .append(", Title: ").append(book.title)
+                  .append(", Author: ").append(book.author)
+                  .append(", Copies: ").append(entry.getValue())
+                  .append("\n");
+                anyAvailable = true;
+            }
+        }
+    
+        if (!anyAvailable) {
             return "No books are currently available.";
         }
-
-        StringBuilder sb = new StringBuilder("Available Books:\n");
-        for (Book book : availableBooks) {
-            sb.append("ID: ").append(book.bookID)
-              .append(", Title: ").append(book.title)
-              .append(", Author: ").append(book.author)
-              .append(", Copies: ").append(Database.books.get(book))
-              .append("\n");
-        }
+    
         return sb.toString();
     }
 
-    
 
     LibraryService libraryService = new LibraryService();
 
