@@ -1,9 +1,15 @@
 package project.LibraryManagementSystem.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import project.LibraryManagementSystem.Repository.Database;
+import project.LibraryManagementSystem.entity.*;
+import project.LibraryManagementSystem.util.*;
+
 
 import project.LibraryManagementSystem.entity.*;
 
@@ -84,4 +90,21 @@ public class UserService {
 			}
 		}
 	}
+	
+	public static ArrayList<Book> sortById(HashMap<Book, Integer> books) {
+		ArrayList<Book> temp = new ArrayList<>(books.keySet());
+		temp.sort(new sortById());;
+		return temp;
+	}
+	public static ArrayList<Book> sortByTitle(HashMap<Book, Integer> books) {
+		ArrayList<Book> temp = new ArrayList<>(books.keySet());
+		temp.sort(new SortByTitle());;
+		return temp;
+	}
+	public static ArrayList<Book> sortByAuthor(HashMap<Book, Integer> books) {
+		ArrayList<Book> temp = new ArrayList<>(books.keySet());
+		temp.sort(new SortByAuthor());;
+		return temp;
+	}
+	
 }

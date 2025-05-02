@@ -3,6 +3,7 @@ import project.LibraryManagementSystem.Service.*;
 import project.LibraryManagementSystem.entity.*;
 import project.LibraryManagementSystem.Repository.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Driver {
@@ -53,7 +54,7 @@ public class Driver {
                     break;
             }
             System.out.print("Do you want to continue(y/n)? ");
-            char choice2 = sc.next().charAt(0);
+            char choice2 = sc.nextLine().charAt(0);
             if(choice2 == 'n') flag = false;
         }
     }
@@ -64,7 +65,7 @@ public class Driver {
     	boolean flag = true;
         while(flag) {
         	System.out.println("What you want to perform?");
-            System.out.println("1:Show All Books, 2:Get The Book, 3:Return The Book, 4:Edit details, 5:Sign Out");
+            System.out.println("1:Show All Books, 2:Get The Book, 3:Return The Book, 4:Edit details, 5:Sort By, 6:Sign Out");
             System.out.print("Enter your choice: ");
             int ch = sc.nextInt();
             switch (ch) {
@@ -88,6 +89,9 @@ public class Driver {
                     System.out.println("Service under maintenance");
                 	break;
                 case 5:
+                	sorting();
+                	break;
+                case 6:
                 	String[] temp = {""};
                 	main(temp);
                 	break;
@@ -166,5 +170,33 @@ public class Driver {
             char choice = sc.nextLine().charAt(0);
             if(choice == 'n') break;
         }
+    }
+    public static void sorting() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Enter your choice for sorting based on: 1:based on ID, 2:based on Title, 3:based on Author");
+    	int ch2 = sc.nextInt();
+    	switch (ch2) {
+		case 1: 
+			ArrayList<Book> arr1 = UserService.sortById(Database.books);
+			for(Book b : arr1) {
+				System.out.println(b);
+			}
+			break;
+		case 2:
+			ArrayList<Book> arr2 = UserService.sortByTitle(Database.books);
+			for(Book b : arr2) {
+				System.out.println(b);
+			}
+			break;
+		case 3:
+			ArrayList<Book> arr3 = UserService.sortByAuthor(Database.books);
+			for(Book b : arr3) {
+				System.out.println(b);
+			}
+			break;
+		default:
+			System.out.println("Wrong choice");
+            break;
+		}
     }
 }
